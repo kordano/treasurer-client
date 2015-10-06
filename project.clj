@@ -5,6 +5,7 @@
                  [org.clojure/clojurescript "1.7.48"]
                  [rum "0.4.2" :exlcusions [cljsjs/react]]
                  [prismatic/dommy "1.1.0"]
+                 [com.lucasbradstreet/cljs-uuid-utils "1.0.2"]
                  [cljs-react-test "0.1.3-SNAPSHOT"]
                  [cljsjs/react-with-addons "0.13.3-0"]]
   :profiles {:dev

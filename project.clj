@@ -3,16 +3,18 @@
   
   :dependencies [[org.clojure/clojure "1.7.0"]
                  [org.clojure/clojurescript "1.7.48"]
-                 [rum "0.4.2"]]
-  
+                 [rum "0.4.2" :exlcusions [cljsjs/react]]
+                 [prismatic/dommy "1.1.0"]
+                 [cljs-react-test "0.1.3-SNAPSHOT"]
+                 [cljsjs/react-with-addons "0.13.3-0"]]
   :profiles {:dev
-             {:plugins [[lein-doo "0.1.4"]
-                        ]}}
+             {:dependencies [[cljs-react-test "0.1.3-SNAPSHOT"]]
+              :plugins [[lein-doo "0.1.4"]]}}
  
   :plugins [[lein-cljsbuild "1.1.0"]
             [lein-doo "0.1.5"]]
  
-  :clean-targets ["dist/*.js" "dist/out" "dist/test"]
+  :clean-targets ["dist/bundle.js" "dist/treasurer.js" "dist/out" "dist/test"]
   
   :cljsbuild {:builds
               {:dev

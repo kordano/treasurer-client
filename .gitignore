@@ -12,3 +12,4 @@ pom.xml.asc
 dist/*.js
 dist/out
 dist/test
+node_modules

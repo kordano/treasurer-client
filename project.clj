@@ -12,7 +12,7 @@
   :plugins [[lein-cljsbuild "1.1.0"]
             [lein-doo "0.1.5"]]
  
-  :clean-targets ["dist"]
+  :clean-targets ["dist/*.js" "dist/out" "dist/test"]
   
   :cljsbuild {:builds
               {:dev

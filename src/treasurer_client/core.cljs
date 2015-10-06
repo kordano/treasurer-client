@@ -6,3 +6,8 @@
    [:td company]
    [:td (.toUTCString ts)]
    [:td amount]])
+
+(rum/defc expense-list [expenses]
+  [:table
+   [:tr [:th "Company"] [:th "Date"] [:th "Amount"]]
+   (map expense expenses)])

@@ -4,7 +4,7 @@
             [cljs-react-test.simulate :as sim]
             [cljs-react-test.utils :as tu]
             [dommy.core :as dommy :refer-macros [sel1 sel]]
-            [treasurer-client.core :refer [expense]]))
+            [treasurer-client.core :refer [expense expense-list]]))
 
 (enable-console-print!)
 
@@ -15,7 +15,7 @@
                         (test-fn)
                         (tu/unmount! c))))
 
-(deftest expense-check
+(deftest expense-rendering
   (testing "renders expenses correctly as a table row"
     (let [data {:amount 42 :ts (js/Date. "2014-12-24") :company "Aldi"}
           tc (.createElement js/document "table")
@@ -26,3 +26,11 @@
       (is (= (.-textContent ts) (.toUTCString (js/Date. "2014-12-24"))))
       (is (= (js/parseInt (.-textContent amount)) 42))
       (tu/unmount! tc))))
+
+(deftest expense-list-rendering
+  (testing "renders a list of expenses"
+    (let [data [{:amount 42 :ts (js/Date. "2014-12-24") :company "Aldi"}
+                {:amount 66 :ts (js/Date. "2014-12-24") :company "Rewe"}]
+          _ (rum/mount (expense-list data) c)
+          cmpnt (sel c :tr)]
+      (is (= (count cmpnt) 3)))))
